@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CoorpAcademy/docker-pyspark.svg)](https://travis-ci.org/CoorpAcademy/docker-pyspark)
+
 # docker-pyspark
 
 This Docker image helps you to run Spark (on Docker) with the following
