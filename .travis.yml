@@ -1,0 +1,17 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
+
+script:
+  - docker build -t $DOCKER_IMAGE_NAME .
+  - docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$SPARK_VERSION && docker push $DOCKER_IMAGE_NAME
+
+env:
+  global:
+    - DOCKER_IMAGE_NAME=coorpacademy/docker-pyspark
+    - SPARK_VERSION=1.5.2
+
