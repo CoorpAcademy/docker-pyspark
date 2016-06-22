@@ -27,11 +27,13 @@ pyOpenSSL==0.14
 pyasn1==0.1.7
 pycparser==2.10
 python-dateutil==2.5.3
+pytz==2016.4
 requests==2.4.3
 schema==0.5.0
 simplegeneric==0.8.1
 six==1.10.0
 traitlets==4.2.1
+tzlocal==1.2.2
 urllib3==1.9.1
 wheel==0.24.0
 wsgiref==0.1.2
