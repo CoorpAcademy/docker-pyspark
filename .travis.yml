@@ -4,8 +4,8 @@ services:
   - docker
 
 before_install:
-  - 'docker pull $DOCKER_IMAGE_NAME:$SPARK_VERSION || echo "Creating new tag: $SPARK_VERSION"'
-  - docker run -it -v $(pwd)/tests:/tmp/tests $DOCKER_IMAGE_NAME:$SPARK_VERSION /tmp/tests/test-pyspark-version.sh $SPARK_VERSION
+  - docker pull $DOCKER_IMAGE_NAME:$SPARK_VERSION || true
+  - docker run -it -v $(pwd)/tests:/tmp/tests $DOCKER_IMAGE_NAME:$SPARK_VERSION /tmp/tests/test-pyspark-version.sh $SPARK_VERSION || true
 
 install:
   - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
@@ -17,4 +17,4 @@ script:
 env:
   global:
     - DOCKER_IMAGE_NAME=coorpacademy/docker-pyspark
-    - SPARK_VERSION=1.6.1
+    - SPARK_VERSION=1.5.2
