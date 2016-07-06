@@ -17,4 +17,4 @@ script:
 env:
   global:
     - DOCKER_IMAGE_NAME=coorpacademy/docker-pyspark
-    - SPARK_VERSION=1.5.2
+    - SPARK_VERSION=1.6.1
