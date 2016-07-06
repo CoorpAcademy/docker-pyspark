@@ -17,24 +17,10 @@ https://spark.apache.org/docs/1.5.2/programming-guide.html#linking-with-spark)
 
 ### 1. Install [homebrew](http://brew.sh)
 
-### 2. Install virtualbox
-    brew cask install virtualbox
+### 2. Install docker and launch docker daemon
+    brew cask install docker
 
-### 3. Install docker and launch docker daemon
-    brew install docker
-
-    # Create and start a virtualbox virtual machine
-    docker-machine create -d virtualbox MY_DOCKER_MACHINE
-    docker-machine start MY_DOCKER_MACHINE
-
-    # Connect docker to it, so that docker containers can be run on it
-    eval $(docker-machine env MY_DOCKER_MACHINE)
-    docker-machine list
-
-The last command should output something like:
-
-    NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
-    default   *        virtualbox   Running   tcp://192.168.99.100:2376           v1.11.1
+Launch the Docker.app application, and make sure it displays "Docker is running".
 
 ## On other OSes
 
@@ -63,6 +49,8 @@ To verify pyspark, run the following example Spark program:
 
 This should print a bunch of debugging output, and on the last line,
 print the output, "1000".
+
+To quit the interpreter, hit `<Ctrl> + D`.
 
 # How to run a cluster of containers with [Docker Compose](http://docs.docker.com/compose)
 
