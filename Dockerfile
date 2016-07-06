@@ -19,7 +19,7 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update \
  && apt-get install -y curl unzip zip \
     python3.4 python3-pip \
- && pip install pip --upgrade \
+ && pip3 install pip --upgrade \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
