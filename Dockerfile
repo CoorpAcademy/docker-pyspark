@@ -20,12 +20,9 @@ RUN apt-get update \
  && apt-get install -y curl unzip zip \
     python2.7 python-setuptools python-pip \
  && easy_install pip \
+ && pip install pip --upgrade \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-
-# PYTHON
-COPY requirements.txt .
-RUN pip install -r requirements.txt
 
 # JAVA
 ENV JAVA_HOME /usr/jdk1.8.0_31
