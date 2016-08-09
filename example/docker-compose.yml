@@ -1,10 +1,13 @@
 master:
-  image: docker-pyspark
+  build: ./
   command: bin/spark-class org.apache.spark.deploy.master.Master -h master
   hostname: master
   environment:
     MASTER: spark://master:7077
     SPARK_CONF_DIR: /conf
+    BRICKLANE_CFG_PATH: /code/config
+    PYSPARK_PYTHON: python3.4
+    PYTHONHASHSEED: 0
   expose:
     - 7001
     - 7002
@@ -20,19 +23,22 @@ master:
     - 7077:7077
     - 8080:8080
   volumes:
-    - ./conf/master:/conf
-    - ./data:/tmp/data
+    - ./config/master:/conf
+    - ../:/code
 
 worker:
-  image: docker-pyspark
+  build: ./
   command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
   hostname: worker
   environment:
     SPARK_CONF_DIR: /conf
+    BRICKLANE_CFG_PATH: /code/config
     SPARK_WORKER_CORES: 2
     SPARK_WORKER_MEMORY: 1g
     SPARK_WORKER_PORT: 8881
     SPARK_WORKER_WEBUI_PORT: 8081
+    PYSPARK_PYTHON: python3.4
+    PYTHONHASHSEED: 0
   links:
     - master
   expose:
@@ -45,5 +51,5 @@ worker:
   ports:
     - 8081:8081
   volumes:
-    - ./conf/worker:/conf
-    - ./data:/tmp/data
+    - ./config/worker:/conf
+    - ../:/code
