@@ -5,9 +5,9 @@
 This Docker image helps you to run Spark (on Docker) with the following
 installed:
 
-1. [Apache Spark](https://spark.apache.org/) 1.5.2
-  + running on Hadoop 2.6.0 and Java 1.8.0_31
-2. python 2.7.9
+1. [Apache Spark](https://spark.apache.org/) 2.0.0
+  + running on Hadoop 2.7.2 and Java openjdk version "1.8.0_92-internal"
+2. Python 3.4.3
 3. Spark's python interface [pyspark](
 https://spark.apache.org/docs/1.5.2/programming-guide.html#linking-with-spark)
 
@@ -57,7 +57,7 @@ To quit the interpreter, hit `<Ctrl> + D`.
 ## docker-compose.yml example files
 
     cd example
-    docker-compose -f pulled-compose.yml up  # launch cluster (Ctrl-C to stop)
+    docker-compose up  # launch cluster (Ctrl-C to stop)
 
 The SparkUI will be running at `http://${YOUR_DOCKER_HOST}:8080` with one
 worker listed. To run `pyspark`, exec into a container:
