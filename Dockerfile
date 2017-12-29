@@ -2,7 +2,7 @@ FROM java:8-jdk-alpine
 
 # PYTHON 3
 
-ENV PYTHON_VERSION 3.4.3-r2
+ENV PYTHON_VERSION 3.6.4
 ENV ALPINE_OLD_VERSION 3.2
 # Hack: using older alpine version to install specific python version
 RUN sed -n \
